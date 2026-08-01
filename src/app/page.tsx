@@ -2,26 +2,43 @@ export default function Home() {
   return (
     <main
       style={{
+        background: "#0B1E2D",
+        color: "white",
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
-        background: "#0B132B",
-        color: "white",
         fontFamily: "Arial, sans-serif",
       }}
     >
       <div style={{ textAlign: "center" }}>
-        <h1 style={{ fontSize: "48px", marginBottom: "10px" }}>
+        <h1
+          style={{
+            fontSize: "56px",
+            marginBottom: "20px",
+            color: "#4FD1C5",
+          }}
+        >
           HumanOS™
         </h1>
 
-        <p style={{ fontSize: "20px", opacity: 0.85 }}>
+        <h2
+          style={{
+            fontSize: "28px",
+            fontWeight: 300,
+            marginBottom: "30px",
+          }}
+        >
           Connecting People. Coordinating Hope.
-        </p>
+        </h2>
 
-        <p style={{ marginTop: "30px", color: "#4FD1C5" }}>
-          Plataforma en desarrollo
+        <p
+          style={{
+            fontSize: "20px",
+            opacity: 0.85,
+          }}
+        >
+          Intelligent Humanitarian Coordination Platform
         </p>
       </div>
     </main>
