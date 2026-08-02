@@ -24,3 +24,6 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.humanos-map-labels {
+  filter: brightness(2.5) contrast(1.3);
+}

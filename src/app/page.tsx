@@ -1,3 +1,13 @@
+"use client";
+
+import dynamic from "next/dynamic";
+
+const HumanitarianMap = dynamic(
+  () => import("@/components/map/HumanitarianMap"),
+  {
+    ssr: false,
+  }
+);
 const menuItems = [
   "Operations Center",
   "Humanitarian Signals",
@@ -222,9 +232,9 @@ export default function Home() {
               </div>
             ))}
           </div>
-
+<HumanitarianMap />
           <div
-            style={{
+            style={{display: "none",
               height: "430px",
               borderRadius: "14px",
               border: "1px solid #23445a",
