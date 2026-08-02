@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import HumanitarianSignals from "@/components/signals/HumanitarianSignals";
 
 const HumanitarianMap = dynamic(
   () => import("@/components/map/HumanitarianMap"),
@@ -233,6 +234,7 @@ export default function Home() {
             ))}
           </div>
 <HumanitarianMap />
+<HumanitarianSignals />
           <div
             style={{display: "none",
               height: "430px",
