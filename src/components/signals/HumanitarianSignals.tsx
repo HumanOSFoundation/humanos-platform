@@ -1,9 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-
+import { useRouter } from "next/navigation";
 type SignalSeverity = "Critical" | "High" | "Monitor";
-type SignalStatus = "New" | "Under Review" | "Verified" | "Rejected";"Converted to Incident";
+type SignalStatus = 
+"New" 
+| "Under Review" 
+| "Verified" 
+| "Rejected"
+| "Converted to Incident"
 
 type HumanitarianSignal = {
   id: string;
@@ -57,6 +62,7 @@ const initialSignals: HumanitarianSignal[] = [
 ];
 
 export default function HumanitarianSignals() {
+  const router = useRouter();
   const [signals, setSignals] =
     useState<HumanitarianSignal[]>(initialSignals);
 
@@ -80,10 +86,26 @@ const [createdIncident, setCreatedIncident] = useState<string | null>(null);
     );
   }
 function convertToIncident(signalId: string): void {
+  const signal = signals.find((item) => item.id === signalId);
+
+  if (!signal) {
+    return;
+  }
+
   const incidentId = `INC-${signalId.replace("SIG-", "")}`;
 
   updateSignalStatus(signalId, "Converted to Incident");
   setCreatedIncident(incidentId);
+
+  const query = new URLSearchParams({
+    signal: signal.id,
+    title: signal.type,
+    severity: signal.severity,
+    location: signal.location,
+    description: signal.description,
+  });
+
+  router.push(`/incidents/${incidentId}?${query.toString()}`);
 }
   return (
     <section
